@@ -1,9 +1,14 @@
 package com.example.t5.services;
 
 import org.apache.shiro.realm.Realm;
+import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.Configuration;
+import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
+import org.apache.tapestry5.ioc.services.ApplicationDefaults;
+import org.apache.tapestry5.ioc.services.SymbolProvider;
 import org.tynamo.security.services.SecurityFilterChainFactory;
 import org.tynamo.security.services.impl.SecurityFilterChain;
 import org.tynamo.shiro.extension.realm.text.ExtendedPropertiesRealm;
@@ -20,6 +25,16 @@ public class TapestryMainModule {
 	public static void contributeIgnoredPathsFilter(Configuration<String> configuration) {
 		configuration.add("/playground/.*");
 		configuration.add("/playground");
+	}
+
+	@Contribute(SymbolProvider.class)
+	@ApplicationDefaults
+	public static void setupEnvironment(MappedConfiguration<String, Object> configuration)
+	{
+        // Support for jQuery is new in Tapestry 5.4 and will become the only supported
+        // option in 5.5.
+		configuration.add(SymbolConstants.JAVASCRIPT_INFRASTRUCTURE_PROVIDER, "jquery");
+		configuration.add(SymbolConstants.BOOTSTRAP_ROOT, "context:mybootstrap");
 	}
 
 	public static void contributeWebSecurityManager(Configuration<Realm> configuration) {
