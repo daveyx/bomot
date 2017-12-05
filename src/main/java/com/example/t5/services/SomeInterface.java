@@ -7,4 +7,6 @@ import org.springframework.web.servlet.ViewResolver;
  */
 public interface SomeInterface {
     ViewResolver testMethod();
+
+	String doSomething();
 }
