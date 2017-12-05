@@ -4,8 +4,8 @@ import org.apache.tapestry5.annotations.Service;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.springframework.web.servlet.ViewResolver;
 
-import com.example.mongo.model.Customer;
-import com.example.mongo.repo.CustomerRepository;
+import com.example.mongo.model.UserAccount;
+import com.example.mongo.repo.UserAccountRepository;
 
 /**
  * Created by code8 on 12/10/15.
@@ -13,7 +13,7 @@ import com.example.mongo.repo.CustomerRepository;
 public class SomeInterfaceImpl implements SomeInterface {
 
 	@Inject
-	private CustomerRepository repository;
+	private UserAccountRepository repository;
 
     final ViewResolver springViewResolver;
 
@@ -28,20 +28,20 @@ public class SomeInterfaceImpl implements SomeInterface {
 
     @Override    
     public String doSomething() {
-		for (Customer customer : repository.findAll()) {
+		for (UserAccount customer : repository.findAll()) {
 			System.out.println(customer);
 		}
 
 		repository.deleteAll();
 
 		// save a couple of customers
-		repository.save(new Customer("Alice", "Smith"));
-		repository.save(new Customer("Bob", "Smith"));
+		repository.save(new UserAccount("Alice", "Smith"));
+		repository.save(new UserAccount("Bob", "Smith"));
 
 		// fetch all customers
 		System.out.println("Customers found with findAll():");
 		System.out.println("-------------------------------");
-		for (Customer customer : repository.findAll()) {
+		for (UserAccount customer : repository.findAll()) {
 			System.out.println(customer);
 		}
 		System.out.println();
@@ -53,7 +53,7 @@ public class SomeInterfaceImpl implements SomeInterface {
 
 		System.out.println("Customers found with findByLastName('Smith'):");
 		System.out.println("--------------------------------");
-		for (Customer customer : repository.findByLastName("Smith")) {
+		for (UserAccount customer : repository.findByLastName("Smith")) {
 			System.out.println(customer);
 		}
 		

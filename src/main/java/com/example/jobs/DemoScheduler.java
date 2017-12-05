@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.example.mongo.model.Customer;
-import com.example.mongo.repo.CustomerRepository;
+import com.example.mongo.model.UserAccount;
+import com.example.mongo.repo.UserAccountRepository;
 
 @Component
 public class DemoScheduler {
@@ -18,14 +18,14 @@ public class DemoScheduler {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
    
     @Autowired
-    private CustomerRepository customerRepository;
+    private UserAccountRepository customerRepository;
 
     @Scheduled(cron = "0 0/1 * * * *")
     public void reportCurrentTime() {
         log.info("The time is now {}", dateFormat.format(new Date()));
 		System.out.println("Customers found with findAll():");
 		System.out.println("-------------------------------");
-		for (Customer customer : customerRepository.findAll()) {
+		for (UserAccount customer : customerRepository.findAll()) {
 			System.out.println(customer);
 		}
     }
