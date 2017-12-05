@@ -1,5 +1,15 @@
-<html>
-<body>
-Ciao SECURED
-</body>
+<html t:type="layout" title="" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h1>
+				Playground
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<p>
+			</p>
+		</div>
+	</div>
 </html>

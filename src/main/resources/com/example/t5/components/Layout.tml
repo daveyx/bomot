@@ -17,8 +17,8 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="container">
+			<hr />
 			<t:body />
 			<hr />
 			<footer>

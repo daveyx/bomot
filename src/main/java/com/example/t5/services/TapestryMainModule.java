@@ -27,6 +27,36 @@ public class TapestryMainModule {
 		configuration.add("/playground");
 	}
 
+    public static void contributeFactoryDefaults(
+        MappedConfiguration<String, Object> configuration)
+    {
+        // The values defined here (as factory default overrides) are themselves
+        // overridden with application defaults by DevelopmentModule and QaModule.
+
+        // The application version is primarily useful as it appears in
+        // any exception reports (HTML or textual).
+        configuration.override(SymbolConstants.APPLICATION_VERSION, "0.0.1-SNAPSHOT");
+
+        // This is something that should be removed when going to production, but is useful
+        // in the early stages of development.
+        configuration.override(SymbolConstants.PRODUCTION_MODE, false);
+    }
+
+    public static void contributeApplicationDefaults(
+        MappedConfiguration<String, Object> configuration)
+    {
+        // Contributions to ApplicationDefaults will override any contributions to
+        // FactoryDefaults (with the same key). Here we're restricting the supported
+        // locales to just "en" (English). As you add localised message catalogs and other assets,
+        // you can extend this list of locales (it's a comma separated series of locale names;
+        // the first locale name is the default when there's no reasonable match).
+        configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en");
+
+              // You should change the passphrase immediately; the HMAC passphrase is used to secure
+        // the hidden field data stored in forms to encrypt and digitally sign client-side data.
+        configuration.add(SymbolConstants.HMAC_PASSPHRASE, "com.example.t5.services.TapestryMainModule");
+    }
+
 	@Contribute(SymbolProvider.class)
 	@ApplicationDefaults
 	public static void setupEnvironment(MappedConfiguration<String, Object> configuration)

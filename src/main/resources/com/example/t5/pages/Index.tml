@@ -1,3 +1,16 @@
 <html t:type="layout" title="" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-	Ciao
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h1>
+				Sping Boot + mongoDB + Tapestry5
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<p>
+				<t:pagelink page="PlaygroundT5">Playground Page</t:pagelink><br/><br/>
+			</p>
+		</div>
+	</div>
 </html>
