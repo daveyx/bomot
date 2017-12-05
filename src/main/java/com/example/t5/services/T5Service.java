@@ -7,17 +7,14 @@ import org.springframework.web.servlet.ViewResolver;
 import com.example.mongo.model.UserAccount;
 import com.example.mongo.repo.UserAccountRepository;
 
-/**
- * Created by code8 on 12/10/15.
- */
-public class SomeInterfaceImpl implements SomeInterface {
+public class T5Service implements IT5Service {
 
 	@Inject
 	private UserAccountRepository repository;
 
     final ViewResolver springViewResolver;
 
-    public SomeInterfaceImpl(@Service("mvcViewResolver") ViewResolver springViewResolver) {
+    public T5Service(@Service("mvcViewResolver") ViewResolver springViewResolver) {
         this.springViewResolver = springViewResolver;
     }
 

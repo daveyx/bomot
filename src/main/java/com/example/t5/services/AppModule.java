@@ -16,10 +16,10 @@ import org.tynamo.shiro.extension.realm.text.ExtendedPropertiesRealm;
 import info.code8.tapestry.TapestryApplication;
 
 @TapestryApplication
-public class TapestryMainModule {
+public class AppModule {
 
 	public static void bind(ServiceBinder binder) {
-		binder.bind(SomeInterface.class, SomeInterfaceImpl.class);
+		binder.bind(IT5Service.class, T5Service.class);
 	}
 
 	public static void contributeIgnoredPathsFilter(Configuration<String> configuration) {
