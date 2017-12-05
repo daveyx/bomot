@@ -29,6 +29,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.apache.tapestry:tapestry-core:5.4.3')
     compile('org.tynamo:tapestry-security:0.7.0')
+    compile('org.apache.commons:commons-lang3:3.6')
 	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
