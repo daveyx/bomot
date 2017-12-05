@@ -16,21 +16,21 @@
 	<div class="row">
 		<div class="col-xs-12 text-center">
 			<t:zone t:id="middlezone" class="">
+				<p>TestData.uuid=${testdata.uuid}</p>
+				<p>TestData.value=${testdata.value}</p>
 			</t:zone>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 text-center">
 			<p>
-				<p><t:eventlink event="ajax" zone="middlezone" class="btn btn-default">DoAjax</t:eventlink></p>
+				<p><t:eventlink event="ajax" zone="middlezone" class="btn btn-default">Change TestData</t:eventlink></p>
 			</p>
 		</div>
 	</div>
 
 	<t:block t:id="block">
-		<h2>Ajax updated</h2>
-		<p>I'v been updated through AJAX call</p>
-		<p>
-		</p>
+		<p>TestData.uuid=${testdata.uuid}</p>
+		<p>TestData.value=${testdata.value}</p>
 	</t:block>
 </html>

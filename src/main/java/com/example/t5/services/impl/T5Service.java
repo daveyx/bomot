@@ -1,4 +1,4 @@
-package com.example.t5.services;
+package com.example.t5.services.impl;
 
 import org.apache.tapestry5.annotations.Service;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ViewResolver;
 
 import com.example.mongo.model.UserAccount;
 import com.example.mongo.repo.UserAccountRepository;
+import com.example.t5.services.IT5Service;
 
 public class T5Service implements IT5Service {
 

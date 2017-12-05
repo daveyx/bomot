@@ -13,6 +13,9 @@ import org.tynamo.security.services.SecurityFilterChainFactory;
 import org.tynamo.security.services.impl.SecurityFilterChain;
 import org.tynamo.shiro.extension.realm.text.ExtendedPropertiesRealm;
 
+import com.example.t5.services.impl.T5Service;
+import com.example.t5.services.impl.T5TestDataService;
+
 import info.code8.tapestry.TapestryApplication;
 
 @TapestryApplication
@@ -20,6 +23,7 @@ public class AppModule {
 
 	public static void bind(ServiceBinder binder) {
 		binder.bind(IT5Service.class, T5Service.class);
+    	binder.bind(IT5TestDataService.class, T5TestDataService.class);
 	}
 
 	public static void contributeIgnoredPathsFilter(Configuration<String> configuration) {

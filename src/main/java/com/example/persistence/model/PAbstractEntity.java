@@ -14,4 +14,7 @@ public abstract class PAbstractEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	protected Long id;
+
+	protected String uuid;
 }
+

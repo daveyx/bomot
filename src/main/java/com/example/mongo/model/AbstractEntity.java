@@ -8,4 +8,6 @@ public abstract class AbstractEntity {
 
 	@Id
 	protected String id;
+
+	protected String uuid;
 }

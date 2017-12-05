@@ -5,28 +5,23 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import com.example.mongo.model.UserAccount;
-import com.example.mongo.repo.UserAccountRepository;
-import com.example.persistence.model.PUserAccount;
-import com.example.persistence.repo.PUserAccountRepository;
+import com.example.mongo.model.TestData;
+import com.example.mongo.repo.TestDataRepository;
 
 @Component
 public class Startup {
 	@Autowired
-	private UserAccountRepository userAccountRepository;
-	
-	@Autowired
-	private PUserAccountRepository pUserAccountRepository;
+	private TestDataRepository testDataRepository;
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
-	    System.out.println("hello world, I have just started up");
-	    for (final UserAccount userAccount : userAccountRepository.findAll()) {
-	    	System.out.println(userAccount);
-	    }
-	    System.out.println("--------------------------------");
-	    for (final PUserAccount userAccount : pUserAccountRepository.findAll()) {
-	    	System.out.println(userAccount);
-	    }
+		final TestData testDataExisting = testDataRepository.findByUuid(TestData.TEST_UUID);
+		if (testDataExisting != null) {
+			testDataRepository.deleteAll();
+		}
+		final TestData testData = new TestData();
+		testData.setUuid(TestData.TEST_UUID);
+		testData.setValue("1");
+		testDataRepository.save(testData);
 	}
 }
