@@ -11,6 +11,7 @@
 			<p>
 				<t:pagelink page="PlaygroundT5">Playground Page</t:pagelink><br/><br/>
 				<t:pagelink page="AjaxForm">Ajax Form Page</t:pagelink><br/><br/>
+				<t:pagelink page="BombServer">Bomb Server Page</t:pagelink><br/><br/>
 			</p>
 		</div>
 	</div>
